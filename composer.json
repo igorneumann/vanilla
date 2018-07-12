@@ -71,8 +71,9 @@
             "library/core/functions.deprecated.php"
         ],
         "psr-4": {
-			"Vanilla\\": "library/Vanilla",
-			"Garden\\": "library/Garden"
+            "Vanilla\\": "library/Vanilla",
+            "Vanilla\\Job\\": "jobs",
+            "Garden\\": "library/Garden"
         }
     },
     "scripts": {

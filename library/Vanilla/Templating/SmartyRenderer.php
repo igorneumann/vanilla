@@ -74,6 +74,10 @@ class SmartyRenderer {
         $localeData = $this->getLocaleData();
         $controllerData = $this->getControllerData($controller);
 
+        // We are falling back to false for when no user was found for compatibility with existing themes.
+        $userData = $this->getUserData();
+        $userData = count($this->getUserData()) === 0 ? false : $userData;
+
         // 2016-07-07 Linc: Request used to return blank for homepage.
         // Now it returns defaultcontroller. This restores BC behavior.
         $isHomepage = val('isHomepage', $controllerData);
@@ -84,7 +88,7 @@ class SmartyRenderer {
         $smarty->assign('Assets', (array)$controller->Assets);
         $smarty->assign('Path', $path);
         $smarty->assign('Homepage', $isHomepage); // true/false
-        $smarty->assign('User', $this->getUserData());
+        $smarty->assign('User', $userData);
         $smarty->assign('BodyID', htmlspecialchars($bodyIdentifier));
 
         // Assign the controller data last so the controllers override any default data.
@@ -240,7 +244,7 @@ class SmartyRenderer {
             }
             $user['Photo'] = $photo;
         } else {
-            $user = false;
+            $user = [];
         }
 
         return $user;

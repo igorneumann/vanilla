@@ -64,7 +64,7 @@ class SmartySecurityPolicy extends BaseSmartySecurityPolicy {
      */
     public function isTrustedPhpFunction($function_name, $compiler) {
         $normalizedFunctionName = strtolower($function_name);
-        if (isset($this->normalizedAllowedFunctions[$normalizedFunctionName])) {
+        if (in_array($normalizedFunctionName, $this->normalizedAllowedFunctions)) {
             return true;
         }
 

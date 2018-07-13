@@ -490,7 +490,7 @@ if (!function_exists('changeBasename')) {
     }
 }
 
-// Smarty
+// SmartyRenderer
 if (!function_exists('checkPermission')) {
     /**
      * A functional version of {@link Gdn_Session::checkPermission()}.
@@ -520,7 +520,7 @@ if (!function_exists('checkRestriction')) {
     }
 }
 
-// Smarty sux
+// SmartyRenderer sux
 if (!function_exists('multiCheckPermission')) {
     /**
      * Check to see if a use has any one of a set of permissions.

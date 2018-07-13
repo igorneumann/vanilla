@@ -14,7 +14,7 @@
  * - <b>name</b>: The name of the asset.
  * - <b>tag</b>: The type of tag to wrap the asset in.
  * - <b>id</b>: The id of the tag if different than the name.
- * @param object $smarty Smarty The smarty object rendering the template.
+ * @param object $smarty SmartyRenderer The smarty object rendering the template.
  * @return string The rendered asset.
  */
 function smarty_function_asset($params, &$smarty) {

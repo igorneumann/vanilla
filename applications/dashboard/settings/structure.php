@@ -944,8 +944,8 @@ if (c('Garden.Registration.CaptchaPublicKey')) {
 }
 
 // Make sure the smarty folders exist.
-touchFolder(PATH_CACHE.'/Smarty/cache');
-touchFolder(PATH_CACHE.'/Smarty/compile');
+touchFolder(PATH_CACHE.'/SmartyRenderer/cache');
+touchFolder(PATH_CACHE.'/SmartyRenderer/compile');
 
 // For Touch Icon
 if (c('Plugins.TouchIcon.Uploaded')) {

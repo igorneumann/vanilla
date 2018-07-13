@@ -329,8 +329,8 @@ class SetupController extends DashboardController {
             $problemDirectories[] = PATH_CACHE;
         }
 
-        if (file_exists(PATH_CACHE.'/Smarty/compile') && (!is_readable(PATH_CACHE.'/Smarty/compile') || !isWritable(PATH_CACHE.'/Smarty/compile'))) {
-            $problemDirectories[] = PATH_CACHE.'/Smarty/compile';
+        if (file_exists(PATH_CACHE.'/SmartyRenderer/compile') && (!is_readable(PATH_CACHE.'/SmartyRenderer/compile') || !isWritable(PATH_CACHE.'/SmartyRenderer/compile'))) {
+            $problemDirectories[] = PATH_CACHE.'/SmartyRenderer/compile';
         }
 
         // Display our permission errors.
@@ -366,14 +366,14 @@ class SetupController extends DashboardController {
 
         // Make sure the cache folder is writable
         if (!$permissionProblem) {
-            if (!file_exists(PATH_CACHE.'/Smarty')) {
-                mkdir(PATH_CACHE.'/Smarty');
+            if (!file_exists(PATH_CACHE.'/SmartyRenderer')) {
+                mkdir(PATH_CACHE.'/SmartyRenderer');
             }
-            if (!file_exists(PATH_CACHE.'/Smarty/cache')) {
-                mkdir(PATH_CACHE.'/Smarty/cache');
+            if (!file_exists(PATH_CACHE.'/SmartyRenderer/cache')) {
+                mkdir(PATH_CACHE.'/SmartyRenderer/cache');
             }
-            if (!file_exists(PATH_CACHE.'/Smarty/compile')) {
-                mkdir(PATH_CACHE.'/Smarty/compile');
+            if (!file_exists(PATH_CACHE.'/SmartyRenderer/compile')) {
+                mkdir(PATH_CACHE.'/SmartyRenderer/compile');
             }
         }
 

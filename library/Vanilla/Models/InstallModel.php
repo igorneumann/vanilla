@@ -183,8 +183,8 @@ class InstallModel {
             }
         }
 
-        if (file_exists(PATH_CACHE.'/Smarty/compile') && (!is_readable(PATH_CACHE.'/Smarty/compile') || !isWritable(PATH_CACHE.'/Smarty/compile'))) {
-            $validation->addError('', '{path} must be writable', ['path' => PATH_CACHE.'/Smarty/compile']);
+        if (file_exists(PATH_CACHE.'/SmartyRenderer/compile') && (!is_readable(PATH_CACHE.'/SmartyRenderer/compile') || !isWritable(PATH_CACHE.'/SmartyRenderer/compile'))) {
+            $validation->addError('', '{path} must be writable', ['path' => PATH_CACHE.'/SmartyRenderer/compile']);
         }
 
         if ($validation->isValidField('')) {

@@ -54,6 +54,16 @@ class DiscussionsController extends VanillaController {
      * @param int $Page Multiplied by PerPage option to determine offset.
      */
     public function index($Page = false) {
+        ///////////////////////////////////
+        //  Testing the GardenMessageQueue
+        $queue = gdn::getContainer()->get('JobQueue'); /* @var $queue Garden\MessageQueue\Queue\JobQueue */
+        $jobs[] = $queue->addJob(\Vanilla\Job\EchoJob::class, ['message' => 'This is a test message from MessageQueue']);
+        $jobs[] = $queue->addJob(\Vanilla\Job\ReadConfigAndLocaleJob::class);
+        $jobs[] = $queue->addJob(\Vanilla\Job\DatabaseJob::class);
+//        $jobs[] = $queue->addJob(\Vanilla\Job\MultipleEchoJob::class);
+//        $jobs[] = $queue->addJob(\Vanilla\Job\SleepyJob::class, ['min' => 300, 'max' => 1200]);
+        ///////////////////////////////////
+
         $this->allowJSONP(true);
         // Figure out which discussions layout to choose (Defined on "Homepage" settings page).
         $Layout = c('Vanilla.Discussions.Layout');

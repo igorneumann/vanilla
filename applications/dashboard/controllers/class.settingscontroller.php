@@ -649,6 +649,7 @@ class SettingsController extends DashboardController {
             ]);
         } else {
             $newRoute = val('Target', $this->Form->formValues(), '');
+            $newRoute = str_replace("'", '', $newRoute);
             Gdn::router()->deleteRoute('DefaultController');
             Gdn::router()->setRoute('DefaultController', $newRoute, 'Internal');
             $this->setData('CurrentTarget', $newRoute);

@@ -15,7 +15,7 @@ use Vanilla\Formatting\Embeds\EmbedManager;
 /**
  * Vanilla's event handlers.
  */
-class VanillaHooks implements Gdn_IPlugin {
+class VanillaHooks implements Gdn_IPlugin, Vanilla\Utility\AttachmentValidatorInterface {
 
     /**
      * Add to valid media attachment types.
@@ -30,12 +30,7 @@ class VanillaHooks implements Gdn_IPlugin {
     }
 
     /**
-     * Verify the current user can attach a media item to a Vanilla post.
-     *
-     * @param bool $canAttach
-     * @param string $foreignType
-     * @param int $foreignID
-     * @return bool
+     * @inheritdoc
      */
     public function canAttachMedia_handler(bool $canAttach, string $foreignType, int $foreignID): bool {
         switch ($foreignType) {
